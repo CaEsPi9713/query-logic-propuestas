@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Query Logic | Propuestas de Proyecto Final</title>
+  <meta name="description" content="Presentación formal de propuestas de proyecto final - Tópicos Avanzados de Bases de Datos. Equipo Query Logic.">
+  
+  <!-- Google Fonts: Inter & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Slide Deck Styling -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="presentation-viewport">
+    
+    <!-- TOP CONTROL BAR -->
+    <header class="pres-top-bar">
+      <div class="top-left">
+        <div class="top-brand">
+          <img src="query_logic_logo.jpeg" alt="Query Logic Logo" style="height: 30px; width: auto; vertical-align: middle; mix-blend-mode: lighten;">
+        </div>
+        <select id="slide-jump-select" class="quick-nav-select" aria-label="Ir a diapositiva">
+          <option value="0">1. Portada</option>
+          <option value="1">2. Criterios de Evaluación y Diseño</option>
+          <option value="2">3. [Propuesta 1] Separador: QLine</option>
+          <option value="3">4. QLine: Propósito y Arquitectura</option>
+          <option value="4">5. QLine: Alcance MVP y Validación</option>
+          <option value="5">6. [Propuesta 2] Separador: NutriBridge</option>
+          <option value="6">7. NutriBridge: Propósito y Arquitectura</option>
+          <option value="7">8. NutriBridge: Alcance MVP y Validación</option>
+          <option value="8">9. [Propuesta 3] Separador: AgroLogic</option>
+          <option value="9">10. AgroLogic: Propósito y Arquitectura</option>
+          <option value="10">11. AgroLogic: Alcance MVP y Validación</option>
+          <option value="11">12. Matriz Comparativa</option>
+          <option value="12">13. Cierre y Consultas</option>
+        </select>
+      </div>
+
+      <div class="top-right">
+        <button type="button" class="top-btn" id="fullscreen-toggle-btn" title="Pantalla completa (Tecla F)">
+          Pantalla Completa
+        </button>
+        <button type="button" class="top-btn" id="download-pdf-btn" title="Descargar presentación completa en PDF" style="background: rgba(56, 189, 248, 0.15); border-color: var(--primary-cyan); color: #fff;">
+          Descargar PDF
+        </button>
+      </div>
+    </header>
+
+    <!-- SLIDE STAGE (16:9 CANVAS) -->
+    <main class="slide-stage" id="slide-stage">
+      <div class="slide-canvas" id="slide-canvas">
+
+        <!-- =================================================================== -->
+        <!-- SLIDE 1: PORTADA -->
+        <!-- =================================================================== -->
+        <section class="slide-item active" data-slide="1">
+          <div class="cover-grid-layout">
+            <div class="cover-text-col">
+              <div class="slide-badges-row">
+                <span class="slide-badge">UNIVERSIDAD NACIONAL</span>
+                <span class="slide-badge">TÓPICOS AVANZADOS DE BD</span>
+                <span class="slide-badge coral">PROPUESTAS MVP</span>
+                <span class="slide-badge green">QUERY LOGIC</span>
+              </div>
+
+              <h1 class="cover-title">Propuestas de Proyecto Final</h1>
+              <div class="cover-main-topic">Planificación y Justificación de Soluciones Open Source</div>
+              <p class="cover-sub">
+                Tres propuestas de software orientadas a resolver problemas reales, diseñadas con rigor arquitectónico,<br>
+                motores especializados (<strong>SQLite</strong>, <strong>Redis</strong>, <strong>MongoDB</strong>) y proyección hacia Trabajo Final de Graduación.
+              </p>
+
+              <div class="cover-divider"></div>
+
+              <div class="cover-footer">
+                Universidad Nacional · Tópicos Avanzados de Bases de Datos · Equipo Query Logic
+              </div>
+            </div>
+
+            <div class="cover-logo-col">
+              <div class="cover-logo-card">
+                <img src="query_logic_logo.jpeg" alt="Query Logic Logo" class="cover-logo-img">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- =================================================================== -->
+        <!-- SLIDE 2: CRITERIOS DE EVALUACIÓN Y DISEÑO -->
+        <!-- =================================================================== -->
+        <section class="slide-item" data-slide="2">
+          <div class="slide-header">
+            <div class="slide-badges-row">
+              <span class="slide-badge">CRITERIOS RECTORES</span>
+              <span class="slide-badge">INGENIERÍA DE SOFTWARE</span>
+              <span class="slide-badge green">QUERY LOGIC</span>
+            </div>
+            <h2 class="slide-title">Criterios de Evaluación y Diseño</h2>
+            <p class="slide-subtitle">Principios técnicos que sustentan y validan cada una de las tres soluciones propuestas:</p>
+          </div>
+
+          <div class="slide-body">
+            <div class="grid-4box">
+              <div class="content-box">
+                <div class="box-title">1. Problema y Usuarios Reales</div>
+                <div class="box-desc">
+                  Necesidad concreta y verificable en un sector productivo o social. Se resuelve un cuello de botella operativo real con valor medible para sus actores.
+                </div>
+              </div>
+
+              <div class="content-box coral">
+                <div class="box-title">2. Arquitectura de Datos Especializada</div>
+                <div class="box-desc">
+                  Uso justificado de SQLite, Redis y/o MongoDB con una función técnica irremplazable: transaccionalidad local ACID, concurrencia in-memory atómica o flexibilidad documental.
+                </div>
+              </div>
+
+              <div class="content-box">
+                <div class="box-title">3. Alcance MVP Acotado (2–3 Semanas)</div>
+                <div class="box-desc">
+                  Límites claros y estrictos de ejecución. Módulos esenciales funcionales y descarte deliberado de elementos secundarios para asegurar entrega con código abierto.
+                </div>
+              </div>
+
+              <div class="content-box coral">
+                <div class="box-title">4. Validación Técnica y Proyección TFG</div>
+                <div class="box-desc">
+                  Evidencias cuantitativas medibles (concurrencia, latencia, resiliencia ante fallos) y base sólida para extender hacia Trabajo Final de Graduación con IA o IoT.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="slide-footer-row">
+            <div class="bottom-callout-bar">
+              <span class="bottom-tag">Enfoque</span>
+              <span class="bottom-text">
+                <strong>Premisa de ingeniería:</strong> Soluciones de alto impacto con arquitectura especializada, alcance realizable y validación cuantitativa.
+              </span>
+            </div>
+            <div class="slide-corner-badge">
+              <img src="query_logic_logo.jpeg" alt="Query Logic Logo" class="corner-logo-img">
+            </div>
+          </div>
+        </section>
+
+        <!-- =================================================================== -->
+        <!-- SLIDE 3: SEPARADOR PROPUESTA 1 (QLINE) -->
+        <!-- =================================================================== -->
+        <section class="slide-item" data-slide="3">
+          <div class="slide-separator theme-qline">
+            <span class="separator-badge">PROPUESTA 01 · SERVICIOS Y TIEMPO REAL</span>
+            <h2 class="separator-title">QLINE</h2>
+            <div class="separator-subtitle">Sistema Inteligente de Gestión de Filas y Turnos en Tiempo Real</div>
+
+            <div class="separator-slogan-box">
+              "MongoDB conserva lo que ocurrió. Redis controla lo que ocurre ahora."
+            </div>
+
+            <div class="separator-purpose-card">
+              <div class="separator-purpose-label">Propósito Central</div>
+              <div class="separator-purpose-text">
+                Coordinar múltiples ventanillas de atención simultánea en clínicas, municipalidades y cooperativas, garantizando <strong>cero turnos duplicados</strong> mediante concurrencia atómica y trazabilidad histórica de SLAs.
+              </div>
+            </div>
+
+            <div class="separator-pills-row">
+              <span class="engine-tag redis">REDIS: Concurrencia, Cola & TTL</span>
+              <span class="engine-tag mongo">MONGODB: Persistencia & Métricas SLA</span>
+            </div>
+
+            <div style="margin-top: 1.25rem;">
+              <img src="query_logic_logo.jpeg" alt="Query Logic Logo" style="height: 32px; width: auto; object-fit: contain; mix-blend-mode: lighten; opacity: 0.9;">
+            </div>
+          </div>
+        </section>
+
+        <!-- =================================================================== -->
+        <!-- SLIDE 4: QLINE - PROPÓSITO, ACTORES Y ARQUITECTURA -->
+        <!-- =================================================================== -->
+        <section class="slide-item" data-slide="4">
+          <div class="slide-header">
+            <div class="slide-badges-row">
+              <span class="slide-badge">PROPUESTA 1 · QLINE</span>
+              <span class="slide-badge">FUNDAMENTO & ARQUITECTURA</span>
+            </div>
+            <h2 class="slide-title">QLine · Propósito y Arquitectura de Datos</h2>
+            <p class="slide-subtitle">
+              Lema de arquitectura: <strong>"MongoDB conserva lo que ocurrió. Redis controla lo que ocurre ahora."</strong>
+            </p>
+          </div>
+
+          <div class="slide-body">
+            <div class="grid-2col">
+              <!-- Left Col: Problem & Actors -->
+              <div class="content-box">
+                <div class="box-title">El Problema y los Actores</div>
+                <div class="box-desc" style="margin-bottom: 8px;">
+                  <strong>Dolor Operativo:</strong> Salas de espera colapsadas, desorden en pasillos y riesgo crítico de que dos operadores en ventanillas distintas llamen al mismo turno simultáneamente.
+                </div>
+                <ul class="clean-list">
+                  <li><strong>Cliente / Paciente:</strong> Genera turno con QR y monitorea su posición en sala.</li>
+                  <li><strong>Operador de Ventanilla:</strong> Acciona "Llamar siguiente" atómicamente y atiende.</li>
+                  <li><strong>Supervisor:</strong> Supervisa en vivo tiempos de espera y audita cumplimiento de SLA.</li>
+                </ul>
+              </div>
+
+              <!-- Right Col: Architecture & Central Data Model -->
+              <div style="display: flex; flex-direction: column; gap: 10px;">
+                <div class="content-box" style="padding: 0.9rem 1.1rem;">
+                  <div class="box-title" style="font-size: 0.95rem; color: var(--primary-cyan);">Motores Justificados</div>
+                  <div style="font-size: 0.8rem; color: #cbd5e1; line-height: 1.5;">
+                    &bull; <strong>Redis (¿Qué ocurre ahora?):</strong> Cola activa con prioridades, llamadas atómicas (<code>LPOP</code>) anti-duplicados y TTL de 180s ante abandono.<br>
+                    &bull; <strong>MongoDB (¿Qué ocurrió?):</strong> Colección inmutable <code>turnos</code> con marcas de tiempo (creado, llamado, finalizado) y reportes de SLA.
+                  </div>
+                </div>
+
+                <div class="code-box" style="padding: 0.75rem;">
+                  <span style="color: var(--text-dim); display: block; margin-bottom: 4px;">// db.turnos (Documento JSON)</span>
+{
+  "codigo": "A-015", "servicio": "Cajas", "prioridad": "preferencial",
+  "estado": "atendido", "ventanilla": "V-02", "operador": "Carlos M.",
+  "timestamps": { "creado": "09:12Z", "llamado": "09:18Z", "finalizado": "09:23Z" },
+  "metricas": { "espera_seg": 382, "atencion_seg": 323 }
+}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="slide-footer-row">
+            <div class="bottom-callout-bar">
+              <span class="bottom-tag">Resiliencia</span>
+              <span class="bottom-text">
+                <strong>Estrategia de Caída:</strong> Si Redis se cae, MongoDB conserva todos los turnos pendientes; al reanudar, un daemon rehidrata la cola en Redis sin pérdida de datos.
+              </span>
+            </div>
+            <div class="slide-corner-badge">
+              <img src="query_logic_logo.jpeg" alt="Query Logic Logo" class="corner-logo-img">
+            </div>
+          </div>
+        </section>
+
+        <!-- =================================================================== -->
+        <!-- SLIDE 5: QLINE - ALCANCE MVP, PRUEBAS Y TFG -->
+        <!-- =================================================================== -->
+        <section class="slide-item" data-slide="5">
+          <div class="slide-header">
+            <div class="slide-badges-row">
+              <span class="slide-badge">PROPUESTA 1 · QLINE</span>
+              <span class="slide-badge">EJECUCIÓN & VALIDACIÓN</span>
+            </div>
+            <h2 class="slide-title">QLine · Alcance del MVP y Validación Técnica</h2>
+            <p class="slide-subtitle">Límites claros para 2–3 semanas, evidencia técnica medible y proyección académica:</p>
+          </div>
+
+          <div class="slide-body">
+            <div class="grid-2col">
+              <!-- Left Col: In vs Out Scope -->
+              <div style="display: flex; flex-direction: column; gap: 10px;">
+                <div class="content-box green" style="padding: 0.9rem 1.1rem;">
+                  <div class="box-title" style="font-size: 0.92rem; color: var(--accent-emerald);">Módulos Incluidos (MVP 2-3 Semanas)</div>
+                  <ul class="clean-list green" style="font-size: 0.8rem;">
+                    <li>Emisión web de turnos con selección de prioridad.</li>
+                    <li>Cola activa in-memory y asignación atómica en Redis.</li>
+                    <li>Panel de ventanilla (Llamar, Iniciar, Finalizar atención).</li>
+                    <li>Historial persistente en MongoDB y dashboard básico de SLA.</li>
+                  </ul>
+                </div>
+
+                <div class="content-box coral" style="padding: 0.9rem 1.1rem;">
+                  <div class="box-title" style="font-size: 0.92rem; color: var(--accent-coral);">Fuera de Alcance (Out of Scope)</div>
+                  <div class="box-desc" style="font-size: 0.8rem;">
+                    Sin apps móviles nativas · Sin WhatsApp/SMS · Sin pasarelas de pago · Sin múltiples sucursales complejas.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right Col: Engineering Evidence & Live Simulator -->
+              <div class="content-box">
+                <div class="box-title">Evidencias Técnicas Verificables</div>
+                <ul class="clean-list" style="font-size: 0.82rem; margin-bottom: 10px;">
+                  <li><strong>Concurrencia:</strong> 10 ventanillas concurrentes llamando al unísono: <span style="color: var(--primary-cyan);">0 turnos duplicados</span>.</li>
+                  <li><strong>Rendimiento:</strong> Latencia en Redis &lt; 2ms vs MongoDB (&gt;85% aceleración).</li>
+                  <li><strong>Recuperación:</strong> 100% de turnos restaurados tras reiniciar Redis forzosamente.</li>
+                </ul>
+
+                <!-- Mini Demo Simulator -->
+                <div class="interactive-test-bar">
+                  <div id="qline-sim-result" class="sim-result-text">Cola Redis: [A-015, A-016, A-017]. Listo para prueba.</div>
+                  <button type="button" class="sim-trigger-btn" id="qline-sim-btn">Probar Llamada Atómica</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="slide-footer-row">
+            <div class="bottom-callout-bar">
+              <span class="bottom-tag">TFG</span>
+              <span class="bottom-text">
+                <strong>Semilla de Licenciatura:</strong> Modelos predictivos de tiempo de espera con Machine Learning y optimización estocástica de colas (M/M/c).
+              </span>
+            </div>
+            <div class="slide-corner-badge">
+              <img src="query_logic_logo.jpeg" alt="Query Logic Logo" class="corner-logo-img">
+            </div>
+          </div>
+        </section>
+
+        <!-- =================================================================== -->
+        <!-- SLIDE 6: SEPARADOR PROPUESTA 2 (NUTRIBRIDGE) -->
+        <!-- =================================================================== -->
+        <section class="slide-item" data-slide="6">
+          <div class="slide-separator theme-nutri">
+            <span class="separator-badge">PROPUESTA 02 · IMPACTO SOCIAL & ECONOMÍA CIRCULAR</span>
+            <h2 class="separator-title">NUTRIBRIDGE</h2>
+            <div class="separator-subtitle">Plataforma Comunitaria de Gestión de Donaciones y Banco de Alimentos</div>
+
+            <div class="separator-slogan-box">
+              "SQLite captura en el acopio sin red. Redis prioriza por caducidad. MongoDB audita el impacto social."
+            </div>
+
+            <div class="separator-purpose-card">
+              <div class="separator-purpose-label">Propósito Central</div>
+              <div class="separator-purpose-text">
+                Rescatar alimentos perecederos donados por supermercados y distribuidores, despachándolos de emergencia a comedores y albergues mediante <strong>prioridad FEFO (First-Expired, First-Out)</strong> y soporte de captura offline en bodegas.
+              </div>
+            </div>
+
+            <div class="separator-pills-row">
+              <span class="engine-tag sqlite">SQLITE: Acopio Local Offline</span>
+              <span class="engine-tag redis">REDIS: Despacho FEFO & TTL</span>
+              <span class="engine-tag mongo">MONGODB: Trazabilidad & Impacto Social</span>
+            </div>
+
+            <div style="margin-top: 1.25rem;">
+              <img src="query_logic_logo.jpeg" alt="Query Logic Logo" style="height: 32px; width: auto; object-fit: contain; mix-blend-mode: lighten; opacity: 0.9;">
+            </div>
+          </div>
+        </section>
+
+        <!-- =================================================================== -->
+        <!-- SLIDE 7: NUTRIBRIDGE - PROPÓSITO, ACTORES Y ARQUITECTURA -->
+        <!-- =================================================================== -->
+        <section class="slide-item" data-slide="7">
+          <div class="slide-header">
+            <div class="slide-badges-row">
+              <span class="slide-badge green">PROPUESTA 2 · NUTRIBRIDGE</span>
+              <span class="slide-badge">FUNDAMENTO & ARQUITECTURA</span>
+            </div>
+            <h2 class="slide-title">NutriBridge · Propósito y Arquitectura de Datos</h2>
+            <p class="slide-subtitle">
+              Lema de arquitectura: <strong>"SQLite captura en el acopio sin red. Redis prioriza por caducidad. MongoDB audita el impacto social."</strong>
+            </p>
+          </div>
+
+          <div class="slide-body">
+            <div class="grid-2col">
+              <!-- Left Col: Problem & Actors -->
+              <div class="content-box green">
+                <div class="box-title">El Problema y los Actores</div>
+                <div class="box-desc" style="margin-bottom: 8px;">
+                  <strong>Dolor Operativo:</strong> Toneladas de alimentos frescos (lácteos, verduras) se pierden por lentitud en contactar albergues antes de que caduquen, sumado a camionetas de recolección sin conexión.
+                </div>
+                <ul class="clean-list green">
+                  <li><strong>Donante (Supermercados/Agro):</strong> Registra lotes por vencer y cantidad.</li>
+                  <li><strong>Voluntario / Camión de Acopio:</strong> Pesa y recibe cajas en SQLite local sin señal.</li>
+                  <li><strong>Comedor / Albergue:</strong> Acepta asignaciones relámpago antes de la caducidad.</li>
+                </ul>
+              </div>
+
+              <!-- Right Col: 3 Engines Architecture & Model -->
+              <div style="display: flex; flex-direction: column; gap: 10px;">
+                <div class="content-box" style="padding: 0.9rem 1.1rem;">
+                  <div class="box-title" style="font-size: 0.95rem; color: var(--accent-emerald);">Sinergia de 3 Motores</div>
+                  <div style="font-size: 0.8rem; color: #cbd5e1; line-height: 1.5;">
+                    &bull; <strong>SQLite (Edge):</strong> Buffer transaccional local en el camión sin internet.<br>
+                    &bull; <strong>Redis (Tiempo Real):</strong> Cola FEFO ordenada por timestamp de vencimiento y alertas TTL.<br>
+                    &bull; <strong>MongoDB (Historial):</strong> Fichas polimórficas de donantes y reportes de kg rescatados.
+                  </div>
+                </div>
+
+                <div class="code-box" style="padding: 0.75rem;">
+                  <span style="color: var(--text-dim); display: block; margin-bottom: 4px;">// db.donaciones (Documento JSON)</span>
+{
+  "_id": "DON-9042", "donante": "Supermercado Central",
+  "alimento": { "categoria": "Lácteos", "kg": 120.5, "requiere_frio": true },
+  "vencimiento": { "fecha": "2026-10-08T18:00Z", "horas_utiles": 48 },
+  "estado": "despachado_fefo", "albergue_id": "Comedor San José",
+  "trazabilidad": { "registrado_sqlite": "08:30Z", "sync_mongo": "09:15Z" }
+}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="slide-footer-row">
+            <div class="bottom-callout-bar">
+              <span class="bottom-tag">Sincronización</span>
+              <span class="bottom-text">
+                <strong>Tolerancia a fallos:</strong> SQLite almacena transacciones en bodega; al detectar red sincroniza a MongoDB e inyecta en la cola FEFO de Redis.
+              </span>
+            </div>
+            <div class="slide-corner-badge">
+              <img src="query_logic_logo.jpeg" alt="Query Logic Logo" class="corner-logo-img">
+            </div>
+          </div>
+        </section>
+
+        <!-- =================================================================== -->
+        <!-- SLIDE 8: NUTRIBRIDGE - ALCANCE MVP, PRUEBAS Y TFG -->
+        <!-- =================================================================== -->
+        <section class="slide-item" data-slide="8">
+          <div class="slide-header">
+            <div class="slide-badges-row">
+              <span class="slide-badge green">PROPUESTA 2 · NUTRIBRIDGE</span>
+              <span class="slide-badge">EJECUCIÓN & VALIDACIÓN</span>
+            </div>
+            <h2 class="slide-title">NutriBridge · Alcance del MVP y Validación Técnica</h2>
+            <p class="slide-subtitle">Límites claros para 2–3 semanas, evidencia técnica medible y proyección académica:</p>
+          </div>
+
+          <div class="slide-body">
+            <div class="grid-2col">
+              <!-- Left Col: In vs Out Scope -->
+              <div style="display: flex; flex-direction: column; gap: 10px;">
+                <div class="content-box green" style="padding: 0.9rem 1.1rem;">
+                  <div class="box-title" style="font-size: 0.92rem; color: var(--accent-emerald);">Módulos Incluidos (MVP 2-3 Semanas)</div>
+                  <ul class="clean-list green" style="font-size: 0.8rem;">
+                    <li>Formulario web de ingreso rápido de donaciones.</li>
+                    <li>Módulo SQLite local para captura offline de pesaje en acopio.</li>
+                    <li>Sincronizador automático por lotes hacia MongoDB.</li>
+                    <li>Cola prioritaria FEFO en Redis y tablero de kg de comida rescatada.</li>
+                  </ul>
+                </div>
+
+                <div class="content-box coral" style="padding: 0.9rem 1.1rem;">
+                  <div class="box-title" style="font-size: 0.92rem; color: var(--accent-coral);">Fuera de Alcance (Out of Scope)</div>
+                  <div class="box-desc" style="font-size: 0.8rem;">
+                    Sin mapas con rutas GPS en vivo · Sin pasarelas de pago · Sin sensores IoT de frío en camiones · Sin validación biométrica.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right Col: Engineering Evidence & Live Simulator -->
+              <div class="content-box">
+                <div class="box-title">Evidencias Técnicas Verificables</div>
+                <ul class="clean-list" style="font-size: 0.82rem; margin-bottom: 10px;">
+                  <li><strong>Resiliencia Offline:</strong> 20 lotes registrados en SQLite sin señal: <span style="color: var(--accent-emerald);">0 datos perdidos</span> tras reconectar.</li>
+                  <li><strong>Lógica FEFO:</strong> 100% de despachos ordenados por urgencia de vencimiento en Redis.</li>
+                  <li><strong>Agregación Mongo:</strong> Cálculo de impacto social sobre 10,000 registros en &lt; 50ms.</li>
+                </ul>
+
+                <!-- Mini Demo Simulator -->
+                <div class="interactive-test-bar">
+                  <div id="nutri-sim-result" class="sim-result-text">Lotes: Lote-A (72h), Lote-B (14h URGENTE), Lote-C (36h).</div>
+                  <button type="button" class="sim-trigger-btn" id="nutri-sim-btn">Ejecutar Matching FEFO</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="slide-footer-row">
+            <div class="bottom-callout-bar">
+              <span class="bottom-tag">TFG</span>
+              <span class="bottom-text">
+                <strong>Semilla de Licenciatura:</strong> Algoritmos de optimización de rutas de rescate de alimentos (VRP) y analítica predictiva de mermas comerciales.
+              </span>
+            </div>
+            <div class="slide-corner-badge">
+              <img src="query_logic_logo.jpeg" alt="Query Logic Logo" class="corner-logo-img">
+            </div>
+          </div>
+        </section>
+
+        <!-- =================================================================== -->
+        <!-- SLIDE 9: SEPARADOR PROPUESTA 3 (AGROLOGIC) -->
+        <!-- =================================================================== -->
+        <section class="slide-item" data-slide="9">
+          <div class="slide-separator theme-agro">
+            <span class="separator-badge">PROPUESTA 03 · AGROTECH & EDGE COMPUTING</span>
+            <h2 class="separator-title">AGROLOGIC</h2>
+            <div class="separator-subtitle">Plataforma de Gestión Agrícola y Cuaderno de Campo Digital</div>
+
+            <div class="separator-slogan-box">
+              "SQLite asegura la transacción en el surco. Redis acelera decisiones ejecutivas. MongoDB adapta la riqueza biológica del cultivo."
+            </div>
+
+            <div class="separator-purpose-card">
+              <div class="separator-purpose-label">Propósito Central</div>
+              <div class="separator-purpose-text">
+                Digitalizar la trazabilidad agronómica en fincas rurales sin cobertura celular, sustituyendo las libretas de papel por una solución <strong>offline-first</strong> para garantizar certificaciones de exportación (GlobalGAP).
+              </div>
+            </div>
+
+            <div class="separator-pills-row">
+              <span class="engine-tag sqlite">SQLITE: Edge Relacional Offline</span>
+              <span class="engine-tag redis">REDIS: Caché & Dashboards Cooperativa</span>
+              <span class="engine-tag mongo">MONGODB: Cuaderno de Campo Multicultivo</span>
+            </div>
+
+            <div style="margin-top: 1.25rem;">
+              <img src="query_logic_logo.jpeg" alt="Query Logic Logo" style="height: 32px; width: auto; object-fit: contain; mix-blend-mode: lighten; opacity: 0.9;">
+            </div>
+          </div>
+        </section>
+
+        <!-- =================================================================== -->
+        <!-- SLIDE 10: AGROLOGIC - PROPÓSITO, ACTORES Y ARQUITECTURA -->
+        <!-- =================================================================== -->
+        <section class="slide-item" data-slide="10">
+          <div class="slide-header">
+            <div class="slide-badges-row">
+              <span class="slide-badge coral">PROPUESTA 3 · AGROLOGIC</span>
+              <span class="slide-badge">FUNDAMENTO & ARQUITECTURA</span>
+            </div>
+            <h2 class="slide-title">AgroLogic · Propósito y Arquitectura de Datos</h2>
+            <p class="slide-subtitle">
+              Lema de arquitectura: <strong>"SQLite asegura la transacción en el surco. Redis acelera decisiones ejecutivas. MongoDB adapta la riqueza biológica del cultivo."</strong>
+            </p>
+          </div>
+
+          <div class="slide-body">
+            <div class="grid-2col">
+              <!-- Left Col: Problem & Actors -->
+              <div class="content-box coral">
+                <div class="box-title">El Problema y los Actores</div>
+                <div class="box-desc" style="margin-bottom: 8px;">
+                  <strong>Dolor Operativo:</strong> Pérdida de certificaciones internacionales por anotaciones dispersas en WhatsApp y papel, violación de tiempos de carencia y parcelas sin cobertura 4G/5G.
+                </div>
+                <ul class="clean-list coral">
+                  <li><strong>Productor / Capataz:</strong> Registra labores diarias y dosis en el lote sin internet.</li>
+                  <li><strong>Ingeniero Agrónomo Inspector:</strong> Documenta plagas con fotos y fija carencias.</li>
+                  <li><strong>Gerente de Cooperativa:</strong> Supervisa consolidado y aprueba exportaciones.</li>
+                </ul>
+              </div>
+
+              <!-- Right Col: 3 Engines Architecture & Model -->
+              <div style="display: flex; flex-direction: column; gap: 10px;">
+                <div class="content-box" style="padding: 0.9rem 1.1rem;">
+                  <div class="box-title" style="font-size: 0.95rem; color: var(--accent-coral);">Sinergia de 3 Motores</div>
+                  <div style="font-size: 0.8rem; color: #cbd5e1; line-height: 1.5;">
+                    &bull; <strong>SQLite (Edge):</strong> Tablas maestras fijas ACID en el móvil (Fincas, Lotes, Insumos).<br>
+                    &bull; <strong>Redis (Tiempo Real):</strong> Caché de dashboards diarios y alertas de carencia.<br>
+                    &bull; <strong>MongoDB (Cuaderno Flexible):</strong> Bitácoras heterogéneas multicultivo (fotos, plagas, audios).
+                  </div>
+                </div>
+
+                <div class="code-box" style="padding: 0.75rem;">
+                  <span style="color: var(--text-dim); display: block; margin-bottom: 4px;">// db.cuaderno_campo (Documento JSON)</span>
+{
+  "_id": "BIT-00431", "productor_id": 104, // Referencia SQLite
+  "finca": "Hacienda Santa Elena", "parcela": "Lote 4 - Café",
+  "evento": "fitosanitario",
+  "detalles": {
+    "plaga": "Broca del Café", "incidencia": "4.5%", "fotos": ["s3://..."],
+    "insumo": "Beauveria bassiana", "dias_carencia": 15
+  },
+  "geo": { "lat": 10.0162, "lng": -84.1189 }
+}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="slide-footer-row">
+            <div class="bottom-callout-bar">
+              <span class="bottom-tag">Arquitectura</span>
+              <span class="bottom-text">
+                <strong>Sincronización híbrida:</strong> SQLite valida estructura relacional fija en el surco; MongoDB absorbe la diversidad documental sin migraciones de esquema.
+              </span>
+            </div>
+            <div class="slide-corner-badge">
+              <img src="query_logic_logo.jpeg" alt="Query Logic Logo" class="corner-logo-img">
+            </div>
+          </div>
+        </section>
+
+        <!-- =================================================================== -->
+        <!-- SLIDE 11: AGROLOGIC - ALCANCE MVP, PRUEBAS Y TFG -->
+        <!-- =================================================================== -->
+        <section class="slide-item" data-slide="11">
+          <div class="slide-header">
+            <div class="slide-badges-row">
+              <span class="slide-badge coral">PROPUESTA 3 · AGROLOGIC</span>
+              <span class="slide-badge">EJECUCIÓN & VALIDACIÓN</span>
+            </div>
+            <h2 class="slide-title">AgroLogic · Alcance del MVP y Validación Técnica</h2>
+            <p class="slide-subtitle">Límites claros para 2–3 semanas, evidencia técnica medible y proyección académica:</p>
+          </div>
+
+          <div class="slide-body">
+            <div class="grid-2col">
+              <!-- Left Col: In vs Out Scope -->
+              <div style="display: flex; flex-direction: column; gap: 10px;">
+                <div class="content-box coral" style="padding: 0.9rem 1.1rem;">
+                  <div class="box-title" style="font-size: 0.92rem; color: var(--accent-coral);">Módulos Incluidos (MVP 2-3 Semanas)</div>
+                  <ul class="clean-list coral" style="font-size: 0.8rem;">
+                    <li>Estructura relacional en SQLite (Fincas, Lotes, Productores).</li>
+                    <li>Interfaz web offline-first para captura de bitácoras en campo.</li>
+                    <li>Almacenamiento de cuaderno dinámico en MongoDB.</li>
+                    <li>Tablero consolidado de cooperativa en Redis y alertas de carencia.</li>
+                  </ul>
+                </div>
+
+                <div class="content-box" style="padding: 0.9rem 1.1rem;">
+                  <div class="box-title" style="font-size: 0.92rem; color: var(--primary-cyan);">Fuera de Alcance (Out of Scope)</div>
+                  <div class="box-desc" style="font-size: 0.8rem;">
+                    Sin imágenes satelitales en vivo · Sin inferencia de IA pesada en el móvil · Sin pasarelas de comercio electrónico · Sin sensores LoRaWAN físicos.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right Col: Engineering Evidence & Live Simulator -->
+              <div class="content-box">
+                <div class="box-title">Evidencias Técnicas Verificables</div>
+                <ul class="clean-list" style="font-size: 0.82rem; margin-bottom: 10px;">
+                  <li><strong>Integridad Edge:</strong> 1,000 registros en SQLite sin inconsistencias ante apagados forzados.</li>
+                  <li><strong>Aceleración Redis:</strong> Dashboard cooperativo de 420ms a 3ms en Redis (<span style="color: var(--accent-coral);">&gt;99% de mejora</span>).</li>
+                  <li><strong>Polimorfismo Mongo:</strong> Registro simultáneo de café, piña y hortalizas sin alterar esquemas.</li>
+                </ul>
+
+                <!-- Mini Demo Simulator -->
+                <div class="interactive-test-bar">
+                  <div id="agro-sim-result" class="sim-result-text">Modo offline en cafetal. Listo para registrar.</div>
+                  <button type="button" class="sim-trigger-btn" id="agro-sim-btn">Guardar Offline en SQLite</button>
+                  <button type="button" class="sim-trigger-btn" id="agro-sync-btn" style="background: #10b981; display: none;">Sincronizar a MongoDB/Redis</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="slide-footer-row">
+            <div class="bottom-callout-bar">
+              <span class="bottom-tag">TFG</span>
+              <span class="bottom-text">
+                <strong>Semilla de Licenciatura:</strong> Diagnóstico temprano de plagas mediante Visión Artificial (IA) sobre fotos de Mongo e ingestión de telemetría de suelo vía IoT.
+              </span>
+            </div>
+            <div class="slide-corner-badge">
+              <img src="query_logic_logo.jpeg" alt="Query Logic Logo" class="corner-logo-img">
+            </div>
+          </div>
+        </section>
+
+        <!-- =================================================================== -->
+        <!-- SLIDE 12: MATRIZ COMPARATIVA -->
+        <!-- =================================================================== -->
+        <section class="slide-item" data-slide="12">
+          <div class="slide-header">
+            <div class="slide-badges-row">
+              <span class="slide-badge">EVALUACIÓN COMPARATIVA</span>
+              <span class="slide-badge coral">ANÁLISIS MULTICRITERIO</span>
+            </div>
+            <h2 class="slide-title">Matriz Comparativa de Decisiones</h2>
+            <p class="slide-subtitle">Contraste directo frente a la rúbrica del curso (problema, arquitectura, viabilidad y TFG):</p>
+          </div>
+
+          <div class="slide-body">
+            <div class="reference-table-wrap">
+              <table class="reference-table">
+                <thead>
+                  <tr>
+                    <th>Criterio de Evaluación</th>
+                    <th>1. QLine</th>
+                    <th>2. NutriBridge</th>
+                    <th>3. AgroLogic</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Dominio y Sector</strong></td>
+                    <td>Clínicas, bancos, municipalidades</td>
+                    <td>Bancos de alimentos, comedores y ONGs</td>
+                    <td>Fincas, agrónomos y cooperativas</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Motores Utilizados</strong></td>
+                    <td>Redis + MongoDB (2 motores)</td>
+                    <td>SQLite + Redis + MongoDB (3 motores)</td>
+                    <td>SQLite + Redis + MongoDB (3 motores)</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Reto Técnico Clave</strong></td>
+                    <td>Concurrencia atómica de ventanillas</td>
+                    <td>Despacho FEFO por caducidad + Offline</td>
+                    <td>Arquitectura offline-first + Schema dinámico</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Viabilidad MVP (2–3 sem)</strong></td>
+                    <td><strong style="color: #4ade80;">Muy Alta (9.5/10)</strong> · Alcance muy acotado</td>
+                    <td><strong style="color: #38bdf8;">Alta (8.8/10)</strong> · Valor social directo</td>
+                    <td><strong style="color: #fb923c;">Media-Alta (8.2/10)</strong> · Requiere acotar cultivo</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Demostración en Vivo</strong></td>
+                    <td>Llamados en vivo en pantalla pública</td>
+                    <td>Reloj regresivo FEFO y asignación</td>
+                    <td>Demostración en modo avión y sync</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Potencial hacia TFG</strong></td>
+                    <td>Predicción de colas con Machine Learning</td>
+                    <td>Optimización de rutas de rescate (VRP)</td>
+                    <td>Visión artificial para plagas + IoT</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="slide-footer-row">
+            <div class="bottom-callout-bar">
+              <span class="bottom-tag">Balance</span>
+              <span class="bottom-text">
+                <strong>Conclusión comparativa:</strong> Las tres soluciones cuentan con arquitectura especializada validada, alcance realizable y proyección académica.
+              </span>
+            </div>
+            <div class="slide-corner-badge">
+              <img src="query_logic_logo.jpeg" alt="Query Logic Logo" class="corner-logo-img">
+            </div>
+          </div>
+        </section>
+
+        <!-- =================================================================== -->
+        <!-- SLIDE 13: CIERRE Y PREGUNTAS -->
+        <!-- =================================================================== -->
+        <section class="slide-item" data-slide="13">
+          <div class="closing-layout">
+            <h2 class="closing-title">Gracias por su tiempo</h2>
+            <div class="closing-sub">¿Dudas o consultas?</div>
+            <div class="closing-logo-card">
+              <img src="query_logic_logo.jpeg" alt="Query Logic Logo" class="closing-logo-img">
+            </div>
+            <p style="font-size: 0.95rem; color: var(--text-dim);">
+              Universidad Nacional · Tópicos Avanzados de Bases de Datos · Equipo Query Logic
+            </p>
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+    <!-- BOTTOM PRESENTATION NAVIGATION BAR -->
+    <footer class="pres-bottom-bar">
+      <div class="nav-controls-center">
+        <button type="button" class="nav-arrow-btn" id="prev-slide-btn" title="Diapositiva anterior (Flecha Izquierda)">
+          Anterior
+        </button>
+        <span class="slide-counter-badge" id="slide-counter">Diapositiva 1 / 13</span>
+        <button type="button" class="nav-arrow-btn" id="next-slide-btn" title="Siguiente diapositiva (Flecha Derecha o Espacio)">
+          Siguiente
+        </button>
+      </div>
+
+      <div style="font-size: 0.76rem; color: var(--text-dim);">
+        Navega con flechas del teclado o barra espaciadora
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Slide Navigation, PDF Export & Simulators Engine -->
+  <script src="app.js"></script>
+</body>
+</html>
