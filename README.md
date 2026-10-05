@@ -12,7 +12,7 @@ Repositorio oficial y presentación interactiva de las tres propuestas arquitect
 
 Accede a la presentación interactiva en formato 16:9 con navegación por teclado y simuladores técnicos:
 
-👉 **[Ver Presentación en Vivo](https://charlo1397.github.io/query-logic-propuestas/)**
+👉 **[Ver Presentación en Vivo](https://caespi9713.github.io/query-logic-propuestas/)**
 
 *(O descargar directamente el documento en formato [PDF Ejecutivo](Query_Logic_Propuestas_Final.pdf))*
 
