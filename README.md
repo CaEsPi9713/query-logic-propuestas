@@ -57,7 +57,7 @@ Accede a la presentación interactiva en formato 16:9 con navegación por teclad
 | **Reto Técnico Clave** | Concurrencia atómica de ventanillas | Despacho FEFO por caducidad + Offline | Arquitectura offline-first + Schema dinámico |
 | **Viabilidad MVP (2–3 sem)** | **Muy Alta (9.5/10)** · Alcance acotado | **Alta (8.8/10)** · Valor social directo | **Media-Alta (8.2/10)** · Requiere acotar cultivo |
 | **Demostración en Vivo** | Llamados en vivo en pantalla pública | Reloj regresivo FEFO y asignación | Demostración en modo avión y sync |
-| **Potencial hacia TFG** | Predicción de colas con Machine Learning | Optimización de rutas de rescate (VRP) | Visión artificial para plagas + telemetría IoT |
+| **Escalabilidad y Proyección Técnica** | Predicción de colas con Machine Learning | Optimización de rutas de rescate (VRP) | Visión artificial para plagas + telemetría IoT |
 
 ---
 
